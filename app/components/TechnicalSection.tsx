@@ -1,4 +1,3 @@
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -18,14 +17,15 @@ const TechnicalSection = () => {
         </div>
 
         <Tabs defaultValue="concepts" className="max-w-4xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 bg-zinc-800 border border-zinc-700">
-            <TabsTrigger value="concepts" className="data-[state=active]:bg-zinc-700 text-zinc-300 data-[state=active]:text-white">Conceitos Fundamentais</TabsTrigger>
-            <TabsTrigger value="keys" className="data-[state=active]:bg-zinc-700 text-zinc-300 data-[state=active]:text-white">Chaves e Criptografia</TabsTrigger>
-            <TabsTrigger value="flow" className="data-[state=active]:bg-zinc-700 text-zinc-300 data-[state=active]:text-white">Fluxo de Dados</TabsTrigger>
+          {/* Modificação aqui: Adicionado 'grid-cols-1 md:grid-cols-3' e 'h-auto md:h-10' para responsividade */}
+          <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 bg-zinc-800 border border-zinc-700 h-auto md:h-10 rounded-md">
+            <TabsTrigger value="concepts" className="data-[state=active]:bg-zinc-700 text-zinc-300 data-[state=active]:text-white py-2.5 md:py-1.5 rounded-t-md md:rounded-l-md md:rounded-tr-none">Conceitos Fundamentais</TabsTrigger>
+            <TabsTrigger value="keys" className="data-[state=active]:bg-zinc-700 text-zinc-300 data-[state=active]:text-white py-2.5 md:py-1.5">Chaves e Criptografia</TabsTrigger>
+            <TabsTrigger value="flow" className="data-[state=active]:bg-zinc-700 text-zinc-300 data-[state=active]:text-white py-2.5 md:py-1.5 rounded-b-md md:rounded-r-md md:rounded-bl-none">Fluxo de Dados</TabsTrigger>
           </TabsList>
           
           <TabsContent value="concepts">
-            <Card className="bg-zinc-800 border-zinc-700">
+            <Card className="bg-zinc-800 border-zinc-700 rounded-t-none md:rounded-md">
               <CardContent className="pt-6 space-y-6">
                 <div>
                   <h3 className="text-xl font-bold mb-2 text-white">E2EE (End-to-End Encryption)</h3>
@@ -62,7 +62,7 @@ const TechnicalSection = () => {
           </TabsContent>
           
           <TabsContent value="keys">
-            <Card className="bg-zinc-800 border-zinc-700">
+            <Card className="bg-zinc-800 border-zinc-700 rounded-t-none md:rounded-md">
               <CardContent className="pt-6 space-y-4 divide-y divide-zinc-700">
                 <div className="pb-4">
                   <h3 className="text-lg font-bold mb-1 text-white">MP (Master Password)</h3>
@@ -96,7 +96,7 @@ const TechnicalSection = () => {
                   </p>
                 </div>
                 
-                <div className="py-4">
+                <div className="pt-4"> {/* Modificado py-4 para pt-4 para o último item não ter padding-bottom desnecessário com divide-y */}
                   <h3 className="text-lg font-bold mb-1 text-white">UserPubK/UserPrivK (Chaves de Usuário)</h3>
                   <p className="text-sm text-zinc-400">
                     Par de chaves assimétricas (ECC/Curve25519) do usuário. A pública é usada por outros 
@@ -108,7 +108,7 @@ const TechnicalSection = () => {
           </TabsContent>
           
           <TabsContent value="flow">
-            <Card className="bg-zinc-800 border-zinc-700">
+            <Card className="bg-zinc-800 border-zinc-700 rounded-t-none md:rounded-md">
               <CardContent className="pt-6">
                 <div className="space-y-6">
                   <div>

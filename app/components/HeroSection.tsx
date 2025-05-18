@@ -3,6 +3,7 @@ import React from "react"
 import { Shield, Key, Lock, FileKey } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Version } from "../Version"
+import Link from "next/link"
 
 interface HomePageProps {
   actualVersion: Version
@@ -43,9 +44,15 @@ const HeroSection = ({ actualVersion }: HomePageProps) => {
                   Comece Agora
                 </a>
               </Button>
-              <Button size="lg" variant="outline" className="border-zinc-700 text-zinc-300 bg-zinc-800 hover:bg-zinc-800 hover:text-white">
-                Saiba Mais
-              </Button>
+              <a target="_blank" rel="noopener noreferrer" href="https://github.com/sanisamoj/LBRAGO">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-zinc-700 text-zinc-300 bg-zinc-800 hover:bg-zinc-800 hover:text-white cursor-pointer"
+                >
+                  Saiba Mais
+                </Button>
+              </a>
             </div>
 
             <div className="mt-12 py-4 px-6 bg-zinc-800/50 border border-zinc-700 rounded-lg inline-flex items-center">

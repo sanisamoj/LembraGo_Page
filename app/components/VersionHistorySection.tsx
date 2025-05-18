@@ -18,7 +18,6 @@ export interface VersionHistorySectionProps {
 }
 
 const VersionHistorySection = ( { actualVersion, allVersions }: VersionHistorySectionProps ) => {
-  console.log("allVersions", allVersions)
   // Format the date from the version data
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString('pt-BR', {

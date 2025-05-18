@@ -39,4 +39,4 @@ ENV NODE_ENV=production
 EXPOSE 3000
 
 # Comando para iniciar o servidor
-CMD ["pnpm", "start"]
+CMD ["npm", "start"]
