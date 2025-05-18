@@ -1,6 +1,6 @@
 
-import React from "react";
-import { Lock } from "lucide-react";
+import React from "react"
+import { Lock } from "lucide-react"
 
 const Footer = () => {
   return (
@@ -38,7 +38,7 @@ const Footer = () => {
         
         <div className="mt-8 pt-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-zinc-500 text-sm">
-            &copy; {new Date().getFullYear()} Lembrago. Todos os direitos reservados.
+            &copy {new Date().getFullYear()} Lembrago. Todos os direitos reservados.
           </p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <a href="#" className="text-zinc-400 hover:text-white">Termos</a>
@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -7,16 +7,22 @@ import DownloadSection from "./DownloadSection"
 import VersionHistorySection from "./VersionHistorySection"
 import Footer from "./Footer"
 import Navbar from "./Navbar"
+import { Version } from "../Version"
 
-const HomePage = () => {
+export interface HomePageProps {
+  actualVersion: Version
+  allVerssions: Version[]
+}
+
+const HomePage = ({ actualVersion, allVerssions }: HomePageProps) => {
   return (
     <div className="min-h-screen bg-zinc-900 text-white">
-      <Navbar />
-      <HeroSection />
+      <Navbar actualVersion={actualVersion}/>
+      <HeroSection actualVersion={actualVersion}/>
       <FeaturesSection />
       <TechnicalSection />
-      <DownloadSection />
-      <VersionHistorySection />
+      <DownloadSection actualVersion={actualVersion}/>
+      <VersionHistorySection actualVersion={actualVersion} allVersions={allVerssions}/>
       <Footer />
     </div>
   )

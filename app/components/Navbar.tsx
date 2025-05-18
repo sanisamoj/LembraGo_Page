@@ -1,8 +1,12 @@
 
-import React from "react";
-import { Lock } from "lucide-react";
+import React from "react"
+import { Version } from "../Version";
 
-const Navbar = () => {
+export interface NavbarProps {
+  actualVersion: Version
+}
+
+const Navbar = ( { actualVersion }: NavbarProps ) => {
   return (
     <nav className="sticky top-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -19,7 +23,7 @@ const Navbar = () => {
         </div>
         
         <div>
-          <a href="#download" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors">
+          <a href={actualVersion.platforms["windows-x86_64"].url} className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-md transition-colors">
             Download
           </a>
         </div>

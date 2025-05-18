@@ -1,17 +1,22 @@
 
-import React from "react";
-import { Monitor, Laptop, ArrowDown } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import React from "react"
+import { Monitor, ArrowDown } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Version } from "../Version"
 
-const DownloadSection = () => {
+export interface DownloadSectionProps {
+  actualVersion: Version
+}
+
+const DownloadSection = ({ actualVersion }: DownloadSectionProps) => {
   const platforms = [
     {
       name: "Windows",
       icon: Monitor,
       description: "Para Windows 10 e 11 (64-bits)",
-      url: "http://217.196.60.110:7888/versions/windows/x86_64/0.8.1",
+      url: actualVersion.platforms["windows-x86_64"].url,
       badge: "Recomendado",
       variant: "blue",
       fileSize: "9.5 MB"
@@ -57,11 +62,13 @@ const DownloadSection = () => {
 
                 <div className="mt-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm text-zinc-500">Versão 0.8.1 Beta</span>
+                    <span className="text-sm text-zinc-500">Versão {actualVersion.version}</span>
                     <span className="text-sm text-zinc-500">{platform.fileSize}</span>
                   </div>
                   <Button className={`w-full bg-${platform.variant}-600 hover:bg-${platform.variant}-700`}>
-                    <ArrowDown className="mr-2 h-4 w-4" /> Download para {platform.name}
+                    <a href={actualVersion.platforms["windows-x86_64"].url} className="flex items-center" download>
+                        <ArrowDown className="mr-2 h-4 w-4" /> Download para {platform.name}
+                    </a>
                   </Button>
                 </div>
               </CardContent>
@@ -77,7 +84,7 @@ const DownloadSection = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default DownloadSection;
+export default DownloadSection

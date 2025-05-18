@@ -1,9 +1,14 @@
 
-import React from "react";
-import { Shield, Key, Lock, FileKey } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import React from "react"
+import { Shield, Key, Lock, FileKey } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Version } from "../Version"
 
-const HeroSection = () => {
+interface HomePageProps {
+  actualVersion: Version
+}
+
+const HeroSection = ({ actualVersion }: HomePageProps) => {
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background gradient */}
@@ -33,8 +38,10 @@ const HeroSection = () => {
 
             <div className="flex flex-col sm:flex-row justify-start gap-4">
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
-                <Key className="mr-2 h-5 w-5" />
-                Comece Agora
+                <a href={actualVersion.platforms["windows-x86_64"].url} className="flex items-center" download>
+                  <Key className="mr-2 h-5 w-5" />
+                  Comece Agora
+                </a>
               </Button>
               <Button size="lg" variant="outline" className="border-zinc-700 text-zinc-300 bg-zinc-800 hover:bg-zinc-800 hover:text-white">
                 Saiba Mais
@@ -43,7 +50,7 @@ const HeroSection = () => {
 
             <div className="mt-12 py-4 px-6 bg-zinc-800/50 border border-zinc-700 rounded-lg inline-flex items-center">
               <span className="text-zinc-400 text-sm">
-                Versão Atual: <span className="text-blue-400 font-semibold">0.8.1 Beta</span>
+                Versão Atual: <span className="text-blue-400 font-semibold">{actualVersion.version}</span>
               </span>
             </div>
           </div>
@@ -77,7 +84,7 @@ const HeroSection = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default HeroSection;
+export default HeroSection

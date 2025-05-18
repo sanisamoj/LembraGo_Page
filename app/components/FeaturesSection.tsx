@@ -1,10 +1,10 @@
 
-import React from "react";
+import React from "react"
 import { 
   Lock, Key, Users, Vault, 
-  Database, Globe, Laptop, Monitor 
-} from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+  Database, Globe, 
+} from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
 
 const FeatureCard = ({ title, description, icon: Icon } : any) => {
   return (
@@ -17,8 +17,8 @@ const FeatureCard = ({ title, description, icon: Icon } : any) => {
         <p className="text-zinc-400">{description}</p>
       </CardContent>
     </Card>
-  );
-};
+  )
+}
 
 const FeaturesSection = () => {
   const features = [
@@ -52,7 +52,7 @@ const FeaturesSection = () => {
       title: "Acesso Multi-plataforma",
       description: "Acesse suas senhas de qualquer dispositivo com nossos aplicativos para Windows, Linux e navegadores."
     }
-  ];
+  ]
 
   return (
     <section id="features" className="py-20 bg-zinc-900">
@@ -75,7 +75,7 @@ const FeaturesSection = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default FeaturesSection;
+export default FeaturesSection

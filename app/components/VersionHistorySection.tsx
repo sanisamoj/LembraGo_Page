@@ -10,58 +10,15 @@ import {
   TableRow 
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import { Version } from "../Version";
 
-const VersionHistorySection = () => {
-  const versionData = {
-    "version": "0.8.1",
-    "notes": "Versão Beta",
-    "pub_date": "2025-05-18T00:54:50.961Z",
-    "platforms": {
-      "linux-x86_64": {
-        "signature": "abc123siglinux",
-        "url": "http://217.196.60.110:7888/versions/windows/x86_64/0.1.0"
-      },
-      "windows-x86_64": {
-        "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRSjNRTUhJbFBQNzVWZGxIYWRlMm14TmVzVVBOaGNmaHBwWnBKOVp4cmhPZ0pHTW9IaUsxeEZJem1KeE9ZRjlaNVJ5UG9LWG5RZ0dvdFJUcmkwc2FueWcwMHBYZkRnTlFnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzQ3NTI5NTg4CWZpbGU6bGVtYnJhZ29fMC44LjFfeDY0X2VuLVVTLm1zaQpZVVJiOWZXcTI3ZzZjRG1CamZMK1FEWXV3TXVtSE1mMUk3ME5sd1diM2pRb1hidHZHcjNBRko4TE9aYWhFajJNbGZsazF0ZzlVd1lHNjBWK0NVMkhEZz09Cg==",
-        "url": "http://217.196.60.110:7888/versions/windows/x86_64/0.8.1"
-      }
-    }
-  };
+export interface VersionHistorySectionProps {
+  actualVersion: Version
+  allVersions: Version[]
+}
 
-  const releaseNotes = [
-    {
-      version: "0.8.1",
-      date: "18 de Maio, 2025",
-      type: "Beta",
-      changes: [
-        "Primeira versão beta pública",
-        "Implementação completa de cofres compartilhados",
-        "Suporte para autenticação de dois fatores",
-        "Correções de bugs menores na interface"
-      ]
-    },
-    {
-      version: "0.7.4",
-      date: "30 de Abril, 2025",
-      type: "Alpha",
-      changes: [
-        "Melhoria no desempenho da busca de senhas",
-        "Nova interface para gerenciamento de equipes",
-        "Correção de vazamento de memória ao fechar a aplicação"
-      ]
-    },
-    {
-      version: "0.6.2",
-      date: "15 de Março, 2025",
-      type: "Alpha",
-      changes: [
-        "Implementação da criptografia E2EE",
-        "Adição de exportação segura de senhas",
-        "Nova arquitetura zero-knowledge"
-      ]
-    }
-  ];
-
+const VersionHistorySection = ( { actualVersion, allVersions }: VersionHistorySectionProps ) => {
+  console.log("allVersions", allVersions)
   // Format the date from the version data
   const formatDate = (dateStr: string) => {
     return new Date(dateStr).toLocaleDateString('pt-BR', {
@@ -99,7 +56,7 @@ const VersionHistorySection = () => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {releaseNotes.map((release) => (
+                  {allVersions.map((release: Version) => (
                     <TableRow key={release.version} className="border-zinc-700 hover:bg-zinc-800/70">
                       <TableCell className="font-medium text-zinc-200">
                         <div className="flex items-center gap-2">
@@ -111,7 +68,7 @@ const VersionHistorySection = () => {
                           </Badge>
                         </div>
                       </TableCell>
-                      <TableCell className="text-zinc-400">{release.date}</TableCell>
+                      <TableCell className="text-zinc-400">{formatDate(release.pub_date)}</TableCell>
                       <TableCell>
                         <ul className="list-disc pl-5 text-zinc-400 marker:text-blue-500 space-y-1">
                           {release.changes.map((change, index) => (
@@ -131,7 +88,7 @@ const VersionHistorySection = () => {
               <CardContent className="p-4">
                 <div className="flex items-center gap-2">
                   <Badge className="bg-blue-600 text-white">Atual</Badge>
-                  <span className="text-zinc-300">Versão {versionData.version} lançada em {formatDate(versionData.pub_date)}</span>
+                  <span className="text-zinc-300">Versão {actualVersion.version} lançada em {formatDate(actualVersion.pub_date)}</span>
                 </div>
               </CardContent>
             </Card>
