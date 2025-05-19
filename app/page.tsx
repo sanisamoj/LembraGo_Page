@@ -6,6 +6,7 @@ export default async function Home() {
   const repository = GlobalRepository.getInstance()
   const actualVersion: Version = await repository.getLatestVersion()
   const allVersions: Version[] = await repository.getAllVersions()
+  console.log(actualVersion, allVersions)
 
   return (
     <HomePage actualVersion={actualVersion} allVerssions={allVersions}/>

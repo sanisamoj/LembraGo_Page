@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     siteName: "Lembrago",
     images: [
       {
-        url: "https://lembrago.sanisamojrepository.com/favicon.ico",
-        width: 1200,
-        height: 630,
+        url: "https://www.sanisamojrepository.com/image-repo/media?media=SaC4Ri6xxQQkTWZ4PpR48alm9aA0a1m6JF65-128x128@2x.png",
+        width: 128,
+        height: 128,
         alt: "Lembrago - Segurança total para suas senhas",
       },
     ],
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Lembrago",
     description:
       "Gerenciador de senhas criptografado com criptografia de ponta a ponta.",
-    images: ["https://lembrago.sanisamojrepository.com/favicon.ico"],
+    images: ["https://www.sanisamojrepository.com/image-repo/media?media=SaC4Ri6xxQQkTWZ4PpR48alm9aA0a1m6JF65-128x128@2x.png"],
     creator: "@seu_twitter",
   },
 };
