@@ -20,7 +20,7 @@ COPY . .
 RUN pnpm build
 
 # Etapa 2: Imagem final para produção
-FROM node:18-alpine AS runner
+FROM node:22-alpine AS runner
 
 # Diretório da aplicação
 WORKDIR /app
